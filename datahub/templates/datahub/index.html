@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataTable</title>
+</head>
+<body>
+    <div>
+        <h3>Data from Hub</h3>
+        <table style="width: 80%; border: 1px solid black;">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Uuid</th>
+                <th>Plate number</th>
+                <th>Group</th>
+                <th>Date</th>
+                <th>Direction</th>
+                <th>Status</th>
+                <th>Type passage</th>
+                <th>Photo</th>
+                <th>Sync</th>
+            </tr>
+            {% for r in r_data %}
+                <tr id="current_data">
+                    <td>{{ r.id }}</td>
+                    <td>{{ r.name }}</td>
+                    <td>{{ r.surname }}</td>
+                    <td>{{ r.uuid }}</td>
+                    <td>{{ r.plate_number }}</td>
+                    <td>{{ r.group }}</td>
+                    <td>{{ r.date }}</td>
+                    <td>{{ r.direction }}</td>
+                    <td>{{ r.status }}</td>
+                    <td>{{ r.type_passage }}</td>
+                    <td>{{ r.photo }}</td>
+                    <td>{{ r.sync }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <a href="{% url 'datahub:data_csv' %}"><button>Export CSV</button></a>
+    </div> 
+</body>
+</html>
